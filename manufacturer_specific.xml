@@ -679,4 +679,267 @@
 	</Manufacturer>
 	<Manufacturer id="0021" name="Zykronix">
 	</Manufacturer>
+	<Manufacturer id="027a" name="Zooz">
+	    <Product type="0101" id="0001" name="ZEN20 Power Strip"/>
+	    <Product type="0101" id="0002" name="ZEN21 On/Off Switch"/>
+	    <Product type="0101" id="0003" name="ZEN22 Dimmer Switch"/>
+	    <Product type="0101" id="0004" name="ZEN23 On/Off Switch"/>
+	    <Product type="0101" id="0005" name="ZEN24 Toggle Dimmer"/>
+	    <Product type="0101" id="0006" name="ZEN25 S2 Double Plug"/>
+	    <Product type="0101" id="0007" name="ZEN26 S2 On/Off Switch"/>
+	    <Product type="0101" id="0008" name="ZEN27 S2 Dimmer Switch"/>
+	    <Product type="0101" id="000a" name="ZEN30 Double Switch"/>
+	    <Product type="0101" id="000b" name="ZEN71 On/Off Switch"/>
+	    <Product type="0101" id="000c" name="ZEN72 Dimmer Switch"/>
+	    <Product type="0101" id="000d" name="ZEN73 On/Off Switch"/>
+	    <Product type="0101" id="000e" name="ZEN74 Toggle Dimmer"/>
+	    <Product type="0102" id="0001" name="ZEN15 Power Switch"/>
+	    <Product type="0102" id="0002" name="ZEN16 MultiRelay"/>
+	    <Product type="0201" id="0001" name="ZSE40 4-in-1 Sensor"/>
+	    <Product type="0201" id="0002" name="ZSE41 Open/Close XS Sensor"/>
+	    <Product type="0201" id="0003" name="ZSE42 Water Leak Sensor"/>
+	    <Product type="0201" id="0004" name="ZSE44 Temperature/Humidity Sensor"/>
+	</Manufacturer>
+
+	<!-- Ring (Amazon Ring) -->
+	<Manufacturer id="0346" name="Ring">
+	    <Product type="0301" id="0401" name="Ring Alarm Motion Detector"/>
+	    <Product type="0301" id="0501" name="Ring Alarm Contact Sensor"/>
+	    <Product type="0301" id="0701" name="Ring Alarm Range Extender"/>
+	    <Product type="0301" id="0801" name="Ring Alarm Keypad"/>
+	    <Product type="0301" id="0c01" name="Ring Alarm Flood & Freeze Sensor"/>
+	</Manufacturer>
+
+	<!-- Aeotec (continuation - more recent products) -->
+	<!-- Add to existing Aeotec (0086) manufacturer -->
+	<Manufacturer id="0086" name="Aeon Labs">
+	    <!-- Add these to existing entries -->
+	    <Product type="0004" id="005b" name="Range Extender 6"/>
+	    <Product type="0004" id="005c" name="Range Extender 7"/>
+	    <Product type="0103" id="0079" name="MultiSensor 6"/>
+	    <Product type="0103" id="007a" name="MultiSensor 7"/>
+	    <Product type="0103" id="0084" name="TriSensor"/>
+	    <Product type="0103" id="0085" name="aerQ Temperature Sensor"/>
+	    <Product type="0003" id="0074" name="Smart Switch 6"/>
+	    <Product type="0003" id="0075" name="Smart Switch 7"/>
+	    <Product type="0003" id="0086" name="Nano Switch"/>
+	    <Product type="0003" id="0087" name="Nano Dimmer"/>
+	    <Product type="0003" id="008f" name="Nano Shutter"/>
+	    <Product type="0004" id="0062" name="LED Bulb 6"/>
+	</Manufacturer>
+
+	<!-- Shelly (IoT devices with Z-Wave) -->
+	<Manufacturer id="0173" name="Shelly">
+	    <Product type="0001" id="0001" name="Shelly Wave 1"/>
+	    <Product type="0001" id="0002" name="Shelly Wave 1PM"/>
+	    <Product type="0001" id="0003" name="Shelly Wave 2PM"/>
+	    <Product type="0001" id="0004" name="Shelly Wave Shutter"/>
+	    <Product type="0001" id="0005" name="Shelly Wave i4"/>
+	</Manufacturer>
+
+	<!-- Inovelli (Popular for power users) -->
+	<Manufacturer id="031e" name="Inovelli">
+	    <Product type="0001" id="0001" name="LZW30-SN Red Series On/Off Switch"/>
+	    <Product type="0001" id="0002" name="LZW31-SN Red Series Dimmer Switch"/>
+	    <Product type="0001" id="0003" name="LZW36 Red Series Fan+Light"/>
+	    <Product type="0003" id="0001" name="LZW45 LED Strip Controller"/>
+	    <Product type="0004" id="0001" name="VZW31-SN Blue Series 2-1 Switch"/>
+	    <Product type="0004" id="0002" name="VZM31-SN Blue Series 2-1 Dimmer"/>
+	    <Product type="0004" id="0003" name="VZM36 Blue Series Fan Switch"/>
+	</Manufacturer>
+
+	<!-- Jasco/GE/Honeywell (continuation) -->
+	<!-- Add to existing GE (0063) manufacturer -->
+	<Manufacturer id="0063" name="GE">
+	    <!-- Add these to existing entries -->
+	    <Product type="4944" id="3235" name="14291 In-Wall Dimmer"/>
+	    <Product type="4944" id="3237" name="14294 In-Wall Dimmer"/>
+	    <Product type="5257" id="3235" name="14292 In-Wall Switch"/>
+	    <Product type="5257" id="3237" name="14295 In-Wall Switch"/>
+	    <Product type="4944" id="3339" name="46201 In-Wall Dimmer"/>
+	    <Product type="5257" id="3339" name="46202 In-Wall Switch"/>
+	    <Product type="4457" id="3235" name="14299 In-Wall Smart Dimmer"/>
+	    <Product type="5257" id="3536" name="14318 Outdoor Smart Plug"/>
+	</Manufacturer>
+
+	<!-- Yale (Smart Locks - continuation) -->
+	<!-- Add to existing Assa Abloy (0129) -->
+	<Manufacturer id="0129" name="Assa Abloy">
+	    <!-- Add these to existing entries -->
+	    <Product type="0003" id="0001" name="Yale Assure Lock SL"/>
+	    <Product type="0004" id="0001" name="Yale Assure Lock 2"/>
+	    <Product type="0005" id="0001" name="Yale Assure Lever Lock"/>
+	    <Product type="0006" id="0001" name="Yale Unity"/>
+	</Manufacturer>
+
+	<!-- August -->
+	<Manufacturer id="0371" name="August">
+	    <Product type="0001" id="0001" name="August Smart Lock Pro"/>
+	    <Product type="0002" id="0001" name="August Smart Lock 3rd Gen"/>
+	    <Product type="0003" id="0001" name="August WiFi Smart Lock"/>
+	</Manufacturer>
+
+	<!-- Sensative -->
+	<Manufacturer id="019a" name="Sensative">
+	    <Product type="0001" id="0001" name="Strips Guard 700"/>
+	    <Product type="0002" id="0001" name="Strips Comfort 700"/>
+	    <Product type="0003" id="0001" name="Strips Drip 700"/>
+	</Manufacturer>
+
+	<!-- Hank (Budget Z-Wave devices) -->
+	<Manufacturer id="0208" name="Hank">
+	    <Product type="0001" id="0001" name="HKZW-SO01 Smart Plug"/>
+	    <Product type="0002" id="0001" name="HKZW-SO05 Smart Plug"/>
+	    <Product type="0003" id="0001" name="HKZW-MS01 Motion Sensor"/>
+	    <Product type="0004" id="0001" name="HKZW-DWS01 Door/Window Sensor"/>
+	    <Product type="0005" id="0001" name="HKZW-RGB01 RGB LED Bulb"/>
+	</Manufacturer>
+
+	<!-- Minoston (Budget switches) -->
+	<Manufacturer id="0312" name="Minoston">
+	    <Product type="0001" id="0001" name="MS10Z In-Wall Switch"/>
+	    <Product type="0002" id="0001" name="MS11Z In-Wall Dimmer"/>
+	    <Product type="0003" id="0001" name="MS12Z 3-Way Switch"/>
+	    <Product type="0004" id="0001" name="MS13Z Outdoor Plug"/>
+	</Manufacturer>
+
+	<!-- Enbrighten (Jasco rebrand) -->
+	<Manufacturer id="0193" name="Enbrighten">
+	    <Product type="0001" id="0001" name="43076 Toggle Switch"/>
+	    <Product type="0002" id="0001" name="43080 Toggle Dimmer"/>
+	    <Product type="0003" id="0001" name="55258 Plug-in Switch"/>
+	    <Product type="0004" id="0001" name="55256 Outdoor Smart Plug"/>
+	</Manufacturer>
+
+	<!-- Ecolink (continuation) -->
+	<!-- Add to existing Ecolink (014a) -->
+	<Manufacturer id="014a" name="Ecolink">
+	    <!-- Add these to existing entries -->
+	    <Product type="0004" id="0001" name="DWZWAVE2.5-ECO Door/Window Sensor"/>
+	    <Product type="0005" id="0001" name="PIRZWAVE2.5-ECO Motion Sensor"/>
+	    <Product type="0006" id="0001" name="FLTZWAVE2.5-ECO Flood Sensor"/>
+	    <Product type="0007" id="0001" name="FF-ZWAVE5-ECO Firefighter Audio Detector"/>
+	    <Product type="0008" id="0001" name="TILT-ZWAVE2.5-ECO Tilt Sensor"/>
+	</Manufacturer>
+
+	<!-- Dome (Home Automation) -->
+	<Manufacturer id="021f" name="Dome">
+	    <Product type="0001" id="0001" name="DMWD1 Water Main Shut-Off"/>
+	    <Product type="0002" id="0001" name="DMMS1 Motion/Light Sensor"/>
+	    <Product type="0003" id="0001" name="DMS01 Door/Window Sensor"/>
+	    <Product type="0004" id="0001" name="DMWS1 Water Leak Sensor"/>
+	    <Product type="0005" id="0001" name="DMMZ1 Mouser"/>
+	</Manufacturer>
+
+	<!-- Honeywell (continuation - Thermostats) -->
+	<!-- Add to existing Honeywell (0039) -->
+	<Manufacturer id="0039" name="Honeywell">
+	    <!-- Add these to existing entries -->
+	    <Product type="0013" id="0001" name="TH6320ZW2003 T6 Pro Thermostat"/>
+	    <Product type="0014" id="0001" name="T5+ Smart Thermostat"/>
+	    <Product type="0015" id="0001" name="TH6320WF2003 WiFi Thermostat"/>
+	</Manufacturer>
+
+	<!-- Intermatic (continuation) -->
+	<!-- Add to existing Intermatic (0005) -->
+	<Manufacturer id="0005" name="Intermatic">
+	    <!-- Add these to existing entries -->
+	    <Product type="4341" id="4341" name="PE653 Pool Control System"/>
+	</Manufacturer>
+
+	<!-- Honeywell/Ademco (Security) -->
+	<Manufacturer id="011a" name="Honeywell Security">
+	    <Product type="0001" id="0001" name="5800C2W Wireless Door/Window Transmitter"/>
+	    <Product type="0002" id="0001" name="5800PIR-RES Motion Detector"/>
+	</Manufacturer>
+
+	<!-- Leviton (continuation - Modern devices) -->
+	<!-- Add to existing Leviton (001d) -->
+	<Manufacturer id="001d" name="Leviton">
+	    <!-- Add these to existing entries -->
+	    <Product type="1a02" id="0334" name="DZ6HD Dimmer"/>
+	    <Product type="1a02" id="0335" name="DZ15S Switch"/>
+	    <Product type="1d04" id="0334" name="ZW4SF Fan Speed Controller"/>
+	    <Product type="0401" id="0334" name="DD00R-DLZ Decora Dimmer"/>
+	    <Product type="0301" id="0334" name="DS00R-DLZ Decora Switch"/>
+	</Manufacturer>
+
+	<!-- ABUS Security -->
+	<Manufacturer id="0403" name="ABUS">
+	    <Product type="0001" id="0001" name="SHHA10000 Smoke Detector"/>
+	    <Product type="0002" id="0001" name="SHLM10000 Water Detector"/>
+	    <Product type="0003" id="0001" name="SHRM10000 Door/Window Contact"/>
+	</Manufacturer>
+
+	<!-- NEO Coolcam -->
+	<Manufacturer id="0258" name="NEO Coolcam">
+	    <Product type="0001" id="0001" name="NAS-PD01Z Motion Sensor"/>
+	    <Product type="0002" id="0001" name="NAS-DS01Z Door/Window Sensor"/>
+	    <Product type="0003" id="0001" name="NAS-WS01Z Water Leak Sensor"/>
+	    <Product type="0004" id="0001" name="NAS-AB01Z Siren Alarm"/>
+	    <Product type="0005" id="0001" name="NAS-WR01Z Power Plug"/>
+	</Manufacturer>
+
+	<!-- Heatit -->
+	<Manufacturer id="019b" name="Heatit">
+	    <Product type="0001" id="0001" name="Z-TRM2fx Floor Thermostat"/>
+	    <Product type="0002" id="0001" name="Z-TRM3 Floor Thermostat"/>
+	    <Product type="0003" id="0001" name="Z-TRM6 Floor Thermostat"/>
+	    <Product type="0004" id="0001" name="Z-Temp2 Temperature Sensor"/>
+	</Manufacturer>
+
+	<!-- Kwikset (continuation - Modern locks) -->
+	<!-- Add to existing Kwikset (0090) -->
+	<Manufacturer id="0090" name="Kwikset">
+	    <!-- Add these to existing entries -->
+	    <Product type="0003" id="0001" name="SmartCode 914 Deadbolt"/>
+	    <Product type="0003" id="0002" name="SmartCode 916 Touchscreen"/>
+	    <Product type="0004" id="0001" name="Halo Touchscreen WiFi"/>
+	    <Product type="0005" id="0001" name="Halo Touchscreen"/>
+	</Manufacturer>
+
+	<!-- Fakro (continuation - Roof Windows) -->
+	<!-- Add to existing Fakro (0085) -->
+	<Manufacturer id="0085" name="Fakro">
+	    <!-- Add these to existing entries -->
+	    <Product type="0001" id="0001" name="ZWS12 Chain Actuator"/>
+	    <Product type="0002" id="0001" name="ZWS230 Chain Actuator"/>
+	    <Product type="0003" id="0001" name="ARZ Z-Wave Control"/>
+	    <Product type="0004" id="0001" name="ZRH Remote Control"/>
+	</Manufacturer>
+
+	<!-- Technisat -->
+	<Manufacturer id="0299" name="Technisat">
+	    <Product type="0001" id="0001" name="Shutter Switch"/>
+	    <Product type="0002" id="0001" name="Dimmer Insert"/>
+	    <Product type="0003" id="0001" name="Switch Insert"/>
+	    <Product type="0004" id="0001" name="Motion Sensor"/>
+	</Manufacturer>
+
+	<!-- Somfy (continuation - Modern products) -->
+	<!-- Add to existing Somfy (0047) -->
+	<Manufacturer id="0047" name="Somfy">
+	    <!-- Add these to existing entries -->
+	    <Product type="0003" id="0001" name="ZRTSI Z-Wave to RTS Interface"/>
+	    <Product type="0004" id="0001" name="Connexoon Window RTS"/>
+	</Manufacturer>
+
+	<!-- Simon -->
+	<Manufacturer id="0267" name="Simon">
+	    <Product type="0001" id="0001" name="IO Switch"/>
+	    <Product type="0002" id="0001" name="IO Roller Shutter"/>
+	    <Product type="0003" id="0001" name="IO Dimmer"/>
+	</Manufacturer>
+
+	<!-- Dresden Elektronik -->
+	<Manufacturer id="0246" name="Dresden Elektronik">
+	    <Product type="0001" id="0001" name="Radiator Thermostat"/>
+	    <Product type="0002" id="0001" name="Scene Controller"/>
+	</Manufacturer>
+
+	<!-- Foxx Project -->
+	<Manufacturer id="0417" name="Foxx Project">
+	    <Product type="0001" id="0001" name="Smart Switch"/>
+	    <Product type="0002" id="0001" name="Smart Dimmer"/>
+	</Manufacturer>
 </ManufacturerSpecificData>
