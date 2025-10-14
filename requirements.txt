@@ -6,3 +6,4 @@ glfw
 rfcat
 cryptography
 pycryptodomex 
+pycryptodome
