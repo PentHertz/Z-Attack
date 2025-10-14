@@ -66,8 +66,7 @@ Z-Attack is a powerful security research tool for intercepting and injecting Z-W
   - Must capture complete KEX (Key Exchange) during pairing
   - ECDH Curve25519 key exchange
   - AES-CCM authenticated encryption
-  - See [S2_DECRYPTION_GUIDE.md](S2_DECRYPTION_GUIDE.md) for detailed instructions
-
+    
 ### 📡 Compatible Networks
 
 - Z-Wave (Classic)
