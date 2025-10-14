@@ -1,0 +1,8 @@
+imgui
+PyOpenGL
+Pillow
+pydot
+glfw
+rfcat
+cryptography
+pycryptodomex 

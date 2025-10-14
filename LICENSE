@@ -1,5 +1,7 @@
 Z-Attack - Z-Wave Packet Interception and Injection Tool
-    Copyright (C) 2015  aDvens www.advens.fr
+    
+    Original Copyright (C) 2015 Advens - www.advens.fr
+    Reloaded and Enhanced (C) 2025 Penthertz - https://penthertz.com
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -13,3 +15,38 @@ Z-Attack - Z-Wave Packet Interception and Injection Tool
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    ===========================================================================
+    
+    ENHANCEMENTS AND MODIFICATIONS (2025):
+    
+    The following improvements were made by Penthertz:
+    - Ported to Python 3 with modern library support
+    - Implemented ImGui-based to modernize the graphical user interface
+    - Added interactive network visualization with real-time topology mapping
+    - Enhanced nonce capture and management system
+    - Improved packet logging and analysis capabilities
+    - Added clean exit mechanisms and better error handling
+    - Modernized codebase architecture and documentation 
+
+    Original Z-Attack tool concept and core Z-Wave protocol implementation
+    by Advens (2015).
+    
+    ===========================================================================
+    
+    CREDITS:
+    
+    Original Author: Advens Security Research Team
+    Website: www.advens.fr
+    
+    Reloaded By: Penthertz
+    Website: https://penthertz.com
+    
+    ===========================================================================
+    
+    For questions, issues, or contributions, please visit:
+    https://github.com/penthertz/
+    
+    This tool is intended for security research and authorized penetration
+    testing only. Users are responsible for complying with all applicable
+    laws and regulations.
