@@ -1,52 +1,272 @@
-Z-Attack - Z-Wave Packet Interception and Injection Tool
-    
-    Original Copyright (C) 2015 Advens - www.advens.fr
-    Reloaded and Enhanced (C) 2025 Penthertz - https://penthertz.com
+================================================================================
+                              Z-ATTACK-NG LICENSE
+             Next Generation Z-Wave Security Testing Framework
+================================================================================
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+Z-Attack-NG - Next Generation Z-Wave Security Testing Framework
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+Original Z-Attack Copyright (C) 2015 Advens
+Website: https://www.advens.fr
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+Z-Attack-NG Refactored and Enhanced Copyright (C) 2025 Penthertz
+Website: https://penthertz.com
 
-    ===========================================================================
-    
-    ENHANCEMENTS AND MODIFICATIONS (2025):
-    
-    The following improvements were made by Penthertz:
-    - Ported to Python 3 with modern library support
-    - Implemented ImGui-based to modernize the graphical user interface
-    - Added interactive network visualization with real-time topology mapping
-    - Enhanced nonce capture and management system
-    - Improved packet logging and analysis capabilities
-    - Added clean exit mechanisms and better error handling
-    - Modernized codebase architecture and documentation 
+================================================================================
+                          GNU GENERAL PUBLIC LICENSE
+                             Version 3, 29 June 2007
+================================================================================
 
-    Original Z-Attack tool concept and core Z-Wave protocol implementation
-    by Advens (2015).
-    
-    ===========================================================================
-    
-    CREDITS:
-    
-    Original Author: Advens Security Research Team
-    Website: www.advens.fr
-    
-    Reloaded By: Penthertz
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+Full license text: <https://www.gnu.org/licenses/gpl-3.0.html>
+
+================================================================================
+                        DERIVATIVE WORK DECLARATION
+================================================================================
+
+This software (Z-Attack-NG) is a derivative work of the original Z-Attack
+tool created by Advens in 2015. The original work was licensed under GPLv3
+and this derivative work maintains that license.
+
+Original Work:
+    Name: Z-Attack
+    Author: Advens Security Research Team
+    Year: 2015
+    License: GNU General Public License v3.0
+
+Derivative Work:
+    Name: Z-Attack-NG (Next Generation)
+    Author: Penthertz
+    Year: 2025
+    License: GNU General Public License v3.0 (maintained)
+
+================================================================================
+                    ENHANCEMENTS AND MODIFICATIONS (2025)
+================================================================================
+
+The following substantial enhancements were made by Penthertz to create
+Z-Attack-NG:
+
+ARCHITECTURE & MODERNIZATION:
+  • Complete Python 3.8+ rewrite with modern coding standards
+  • Modular architecture with clear separation of concerns
+  • Organized into core, gui, s2, hardware, and data modules
+  • Type hints and comprehensive documentation
+  • Modern dependency management with requirements.txt
+
+USER INTERFACE:
+  • Replaced legacy interface with professional ImGui-based GUI
+  • Real-time packet interception display with dual-log system
+  • Interactive network topology visualization
+  • Context-sensitive menus and tooltips
+  • Enhanced visual feedback and status indicators
+
+SECURITY FEATURES:
+  • Full Z-Wave S2 (Security 2) decryption support
+    - ECDH Curve25519 key exchange capture
+    - AES-CCM authenticated encryption/decryption
+    - DSK-based device pairing
+    - Session management and export
+    - SPAN replay protection
+  • Enhanced S0 (Security 0) support with improved nonce management
+  • Comprehensive security class handling
+
+PROTOCOL SUPPORT:
+  • Support for 60+ Z-Wave command classes
+  • Z-Wave Plus device detection and parsing
+  • Enhanced command class parsers with detailed output
+  • Improved frame construction and validation
+
+ANALYSIS & LOGGING:
+  • Advanced packet logging with timestamps
+  • CSV export functionality for data analysis
+  • Nonce capture database with export capabilities
+  • S2 session data export for forensics
+  • Right-click context menus for easy data copying
+
+HARDWARE SUPPORT:
+  • Hardware abstraction layer for device independence
+  • Enhanced RfCat integration with better error handling
+  • Improved TI RF Kit support
+  • Graceful cleanup and resource management
+
+DEVELOPER EXPERIENCE:
+  • Modern argparse-based CLI with comprehensive help
+  • Debug mode with verbose logging
+  • Clean exit mechanisms and signal handling
+  • Extensible plugin-ready architecture
+  • Comprehensive inline documentation
+
+STABILITY & RELIABILITY:
+  • Improved error handling throughout codebase
+  • Memory leak fixes
+  • Better resource cleanup
+  • Crash recovery mechanisms
+  • Platform compatibility improvements
+
+All enhancements maintain compatibility with the GPLv3 license and
+preserve attribution to the original authors.
+
+================================================================================
+                              CREDITS & ATTRIBUTION
+================================================================================
+
+ORIGINAL AUTHOR (2015):
+    Organization: Advens
+    Team: Advens Security Research Team
+    Website: https://www.advens.fr
+    Project: Z-Attack (Original)
+    Contribution: Initial concept, core Z-Wave protocol implementation,
+                  packet interception/injection framework
+
+REFACTORED & ENHANCED BY (2025):
+    Organization: Penthertz
     Website: https://penthertz.com
-    
-    ===========================================================================
-    
-    For questions, issues, or contributions, please visit:
-    https://github.com/penthertz/
-    
-    This tool is intended for security research and authorized penetration
-    testing only. Users are responsible for complying with all applicable
-    laws and regulations.
+    Twitter: @penthertz
+    Project: Z-Attack-NG (Next Generation)
+    Contribution: Complete modernization, S2 security support, modular
+                  architecture, ImGui interface, extensive enhancements
+
+THIRD-PARTY COMPONENTS:
+    • RfCat - RF transceiver library
+      License: BSD-style license
+      Website: https://github.com/atlas0fd00m/rfcat
+
+    • PyImGui - Python bindings for Dear ImGui
+      License: MIT License
+      Website: https://github.com/pyimgui/pyimgui
+
+    • Cryptography - Cryptographic recipes and primitives
+      License: Apache License 2.0 / BSD License
+      Website: https://github.com/pyca/cryptography
+
+    • PyCryptodome - Cryptographic library
+      License: BSD 2-Clause License
+      Website: https://github.com/Legrandin/pycryptodome
+
+All third-party components are used in accordance with their respective
+licenses. See requirements.txt for complete dependency list.
+
+================================================================================
+                        RESPONSIBLE USE DISCLAIMER
+================================================================================
+
+Z-Attack-NG is a security research and testing tool intended ONLY for:
+
+AUTHORIZED USES:
+  ✓ Security research and academic study
+  ✓ Authorized penetration testing with written permission
+  ✓ Analysis of personally owned Z-Wave networks
+  ✓ Security auditing by qualified professionals
+  ✓ Educational purposes in controlled environments
+  ✓ Vulnerability research and responsible disclosure
+
+PROHIBITED USES:
+  ✗ Unauthorized access to Z-Wave networks or devices
+  ✗ Malicious attacks, disruption, or denial of service
+  ✗ Privacy violations or surveillance without consent
+  ✗ Any activity that violates local, state, or federal laws
+  ✗ Commercial use without proper authorization
+  ✗ Bypassing security measures without authorization
+
+USER RESPONSIBILITIES:
+By using this tool, you agree to:
+  1. Use the tool legally and ethically at all times
+  2. Obtain explicit written authorization before testing any network
+  3. Comply with all applicable laws, regulations, and policies
+  4. Respect privacy rights and data protection regulations
+  5. Use findings responsibly and follow disclosure best practices
+  6. Take full personal responsibility for your actions
+
+LEGAL COMPLIANCE:
+Users must comply with all applicable laws including but not limited to:
+  • Computer Fraud and Abuse Act (CFAA) in the United States
+  • Computer Misuse Act in the United Kingdom
+  • EU General Data Protection Regulation (GDPR)
+  • Local telecommunications and electronic surveillance laws
+  • Terms of service for tested networks and devices
+
+THE AUTHORS AND COPYRIGHT HOLDERS PROVIDE THIS SOFTWARE "AS IS" WITHOUT
+WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN NO EVENT SHALL THE AUTHORS
+BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE
+OR MISUSE OF THIS SOFTWARE.
+
+THE AUTHORS EXPLICITLY DISCLAIM ANY RESPONSIBILITY FOR ILLEGAL OR UNETHICAL
+USE OF THIS TOOL. USERS ASSUME ALL LEGAL AND ETHICAL RESPONSIBILITY.
+
+================================================================================
+                           PATENT AND TRADEMARK NOTICE
+================================================================================
+
+Z-Wave is a registered trademark of Silicon Labs and/or Z-Wave Alliance.
+This project is not affiliated with, endorsed by, or sponsored by Silicon Labs,
+Z-Wave Alliance, or any Z-Wave technology providers.
+
+This software is provided for security research purposes and does not imply
+any endorsement or certification from Z-Wave Alliance or related entities.
+
+================================================================================
+                              CONTRIBUTION POLICY
+================================================================================
+
+Contributions to Z-Attack-NG are welcome under the following terms:
+
+1. All contributions must be original work or properly licensed
+2. Contributors grant license to use their contributions under GPLv3
+3. Contributors retain copyright to their original contributions
+4. All contributions must maintain GPLv3 compatibility
+5. Significant contributors will be credited in project documentation
+
+To contribute:
+  • Fork the repository
+  • Create a feature branch
+  • Submit a pull request with detailed description
+  • Ensure code follows project style guidelines
+  • Include appropriate tests and documentation
+
+For more information, see CONTRIBUTING.md
+
+================================================================================
+                              CONTACT INFORMATION
+================================================================================
+
+PROJECT REPOSITORY:
+    GitHub: https://github.com/PentHertz/Z-Attack-ng
+
+SECURITY ISSUES:
+    Email: security@penthertz.com
+    Policy: Responsible disclosure appreciated
+    Please do NOT open public issues for security vulnerabilities
+
+GENERAL INQUIRIES:
+    Website: https://penthertz.com
+    Twitter: @penthertz
+
+ORIGINAL PROJECT:
+    Website: https://www.advens.fr
+
+================================================================================
+                              VERSION INFORMATION
+================================================================================
+
+License Version: 1.0
+Last Updated: January 2025
+Applies To: Z-Attack-NG v1.0.0 and later
+
+This license file should be distributed with all copies or substantial
+portions of the software.
+
+================================================================================
+                                END OF LICENSE
+================================================================================

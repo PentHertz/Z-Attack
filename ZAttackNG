@@ -1,0 +1,178 @@
+#!/usr/bin/env python3
+
+"""
+Z-Attack Main Entry Point
+Next Generation Z-Wave Security Testing Tool
+
+Original Z-Attack developed by Advens (2015)
+https://github.com/Advens/Z-Attack
+
+Refactored and Enhanced by Penthertz (2025)
+- Complete code modernization and restructuring
+- Modular architecture with separated GUI and logic
+- Added S2 (Security 2) support
+- Enhanced UI with ImGui
+- Modern argument parsing
+- Improved error handling and stability
+
+Website: https://penthertz.com
+License: GPLv3
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program comes with ABSOLUTELY NO WARRANTY.
+"""
+
+import sys
+import signal
+import atexit
+from config import cprint, Colors, DEFAULT_KEY
+from hardware import RfCatDevice, SerialDevice
+from core import ZWaveProtocol, ZWaveCrypto, NetworkManager
+from gui import ZAttackGUI
+
+# Global instances
+hardware_device = None
+protocol = None
+crypto = None
+network_manager = None
+gui = None
+is_running = True
+
+def cleanup():
+    """Clean up resources before exit"""
+    global hardware_device, gui
+    
+    cprint("\n[*] Cleaning up resources...", Colors.WARNING, bold=True)
+    
+    if hardware_device:
+        hardware_device.cleanup()
+    
+    if gui:
+        gui.cleanup()
+    
+    cprint("[*] Cleanup complete. Goodbye!", Colors.OKGREEN, bold=True)
+
+def signal_handler(sig, frame):
+    """Handle Ctrl+C gracefully"""
+    global is_running
+    cprint("\n[*] Interrupt received, shutting down...", Colors.WARNING, bold=True)
+    is_running = False
+    cleanup()
+    sys.exit(0)
+
+def license_info():
+    """Display license information"""
+    cprint("╔═══════════════════════════════════════════════════════════╗", Colors.HEADER)
+    cprint("║            Z-Attack-NG - Z-Wave Security Tool             ║", Colors.HEADER, bold=True)
+    cprint("╚═══════════════════════════════════════════════════════════╝", Colors.HEADER)
+    print("")
+    cprint("Z-Attack-NG Copyright (C) 2025 Penthertz", Colors.OKGREEN, bold=True)
+    cprint("Original Z-Attack Copyright (C) 2015 Advens", Colors.OKCYAN)
+    cprint("Refactored & Enhanced by Penthertz + Dear ImGUI - https://penthertz.com", Colors.OKCYAN)
+    print("")
+    cprint("This program comes with ABSOLUTELY NO WARRANTY;", Colors.WARNING)
+    cprint("This is free software, and you are welcome to redistribute it", Colors.OKGREEN)
+    cprint("under certain conditions. See LICENSE file for details.", Colors.OKGREEN)
+    print("")
+    cprint("Licensed under GNU General Public License v3.0 (GPLv3)", Colors.OKCYAN)
+    print("")
+
+def help_info():
+    """Display help information"""
+    cprint("Z-Attack-NG 1.0 - Reloaded with more features and with Dear ImGUI", Colors.HEADER, bold=True)
+    print("Usage: python ZAttackNG [options]")
+    print("")
+    print("Options:")
+    print("  -d              Enable debug mode")
+    print("  -csv            Enable CSV output")
+    print("  -1              Use RfCat device [DEFAULT]")
+    print("  -2              Use TI RF KIT (serial)")
+    print("  -lcom COM1      Listening port for TI RF KIT")
+    print("  -scom COM2      Sending port for TI RF KIT")
+    print("  -h              Show this help")
+    print("")
+    cprint("Initial tool from Advens", Colors.OKBLUE)
+    cprint("Reloaded by Penthertz with S2 support and ImGUI (and some refactor)", Colors.OKCYAN)
+    cprint("Website: https://penthertz.com", Colors.OKGREEN)
+    sys.exit(0)
+
+def main():
+    """Main entry point"""
+    global hardware_device, protocol, crypto, network_manager, gui, is_running
+    
+    # Register cleanup
+    atexit.register(cleanup)
+    signal.signal(signal.SIGINT, signal_handler)
+    
+    # Parse arguments
+    debug = False
+    csv_output = True
+    device_type = 1  # 1=RfCat, 2=Serial
+    listen_com = ""
+    send_com = ""
+    
+    argc = len(sys.argv)
+    for i in range(1, argc):
+        arg = sys.argv[i]
+        if arg == "-d":
+            debug = True
+        elif arg == "-csv":
+            csv_output = True
+        elif arg == "-1":
+            device_type = 1
+        elif arg == "-2":
+            device_type = 2
+        elif arg == "-lcom" and i + 1 < argc:
+            listen_com = sys.argv[i + 1]
+        elif arg == "-scom" and i + 1 < argc:
+            send_com = sys.argv[i + 1]
+        elif arg == "-h":
+            help_info()
+    
+    # Display license
+    license_info()
+    
+    # Initialize hardware
+    if device_type == 1:
+        hardware_device = RfCatDevice()
+    else:
+        if not listen_com or not send_com:
+            cprint("Error: -lcom and -scom required for TI RF KIT", Colors.FAIL, bold=True)
+            sys.exit(1)
+        hardware_device = SerialDevice(listen_com, send_com)
+    
+    if not hardware_device.initialize():
+        cprint("Error: Failed to initialize hardware", Colors.FAIL, bold=True)
+        sys.exit(1)
+    
+    # Initialize core components
+    protocol = ZWaveProtocol()
+    crypto = ZWaveCrypto(DEFAULT_KEY)
+    network_manager = NetworkManager()
+    
+    # Initialize GUI
+    gui = ZAttackGUI(
+        hardware_device=hardware_device,
+        protocol=protocol,
+        crypto=crypto,
+        network_manager=network_manager,
+        debug=debug,
+        csv_output=csv_output
+    )
+    
+    # Run GUI
+    try:
+        gui.run()
+    except KeyboardInterrupt:
+        cprint("\n[*] Keyboard interrupt detected", Colors.WARNING, bold=True)
+    except Exception as e:
+        cprint(f"\n[!] Unexpected error: {str(e)}", Colors.FAIL, bold=True)
+    finally:
+        cleanup()
+
+if __name__ == "__main__":
+    main()

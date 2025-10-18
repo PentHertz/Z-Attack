@@ -1,13 +1,31 @@
 """
 S2 Security Integration Manager for Z-Attack
-Handles S2 session management and frame processing
+Next Generation Z-Wave Security Testing Tool
 
-Author: Penthertz
+Original Z-Attack developed by Advens (2015)
+https://github.com/Advens/Z-Attack
+
+Refactored and Enhanced by Penthertz (2025)
+- Complete code modernization and restructuring
+- Modular architecture with separated GUI and logic
+- Added S2 (Security 2) support
+- Enhanced UI with ImGui
+- Modern argument parsing
+- Improved error handling and stability
+
+Website: https://penthertz.com
 License: GPLv3
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program comes with ABSOLUTELY NO WARRANTY.
 """
 
 import datetime
-from s2_crypto import S2SecurityManager, parse_s2_message_encap, extract_public_key_from_report, Colors, cprint
+from s2.s2_crypto import S2SecurityManager, parse_s2_message_encap, extract_public_key_from_report, Colors, cprint
 
 class S2SessionManager:
     """

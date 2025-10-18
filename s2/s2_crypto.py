@@ -1,12 +1,27 @@
 """
 S2 Security Cryptography Module for Z-Attack
-Implements Z-Wave S2 (Security 2) encryption/decryption
+Next Generation Z-Wave Security Testing Tool
 
-Requirements:
-    pip install cryptography pycryptodomex
+Original Z-Attack developed by Advens (2015)
+https://github.com/Advens/Z-Attack
 
-Author: Penthertz
+Refactored and Enhanced by Penthertz (2025)
+- Complete code modernization and restructuring
+- Modular architecture with separated GUI and logic
+- Added S2 (Security 2) support
+- Enhanced UI with ImGui
+- Modern argument parsing
+- Improved error handling and stability
+
+Website: https://penthertz.com
 License: GPLv3
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program comes with ABSOLUTELY NO WARRANTY.
 """
 
 import hashlib
@@ -20,23 +35,11 @@ from Cryptodome.Cipher import AES
 from Cryptodome.Util import Counter
 import secrets
 
-# ANSI Colors for output
-class Colors:
-    HEADER = '\033[95m'
-    OKBLUE = '\033[94m'
-    OKCYAN = '\033[96m'
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    ENDC = '\033[0m'
-    BOLD = '\033[1m'
-    PURPLE = '\033[35m'
-
-def cprint(text, color=Colors.ENDC, bold=False):
-    """Colored print function"""
-    prefix = Colors.BOLD if bold else ""
-    print(f"{prefix}{color}{text}{Colors.ENDC}")
-
+# Import colors from config
+import sys
+import os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from config import Colors, cprint
 
 class S2SecurityManager:
     """

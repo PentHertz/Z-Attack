@@ -1,292 +1,461 @@
-# Z-Attack-ng
+# Z-Attack-NG
 
-**Z-Wave Packet Interception and Injection Tool**
+<div align="center">
 
-Original tool by [Advens](https://www.advens.fr) (2015)  
-Reloaded and enhanced by [Penthertz](https://penthertz.com) (2025)
+![Z-Attack-NG](images/zattack.png)
 
----
+**Next Generation Z-Wave Security Testing Framework**
 
-## Overview
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macos%20%7C%20windows-lightgrey.svg)](https://github.com/PentHertz/Z-Attack-ng)
 
-Z-Attack is a powerful security research tool for intercepting and injecting Z-Wave packets. This reloaded version features a modern Python 3 implementation with an interactive ImGui-based graphical interface.
+*Professional Z-Wave packet interception, analysis, and injection tool with full S2 security support*
 
-**Version 1.0** - Major rewrite with enhanced features
+[Features](#-features) • [Installation](#-installation) • [Quick Start](#-quick-start) • [Documentation](#-documentation) • [Credits](#-credits)
 
-### Key Features
-
-- 🎯 Real-time Z-Wave packet interception and analysis
-- 💉 Packet injection capabilities
-- 🗺️ Interactive network topology visualization
-- 🔐 Nonce capture and management system
-- 📊 Advanced logging and analysis
-- 🖥️ Modern ImGui graphical interface
-- 🔧 Support for RfCat and Texas Instruments development kits
-- ⚡ **Z-Wave Plus support** with enhanced command classes
-- 🔒 **S2 Security decryption** (FULL SUPPORT with DSK)
-- 🔐 **S0 Security decryption** (legacy support)
+</div>
 
 ---
 
-## Z-Wave Plus & Security Support
+## 📋 Overview
 
-### ✅ Fully Supported Features
+**Z-Attack-NG** is an interactive security research framework for Z-Wave protocol analysis and testing. Born from the original Z-Attack by Advens (2015), this next-generation version has been completely rewritten with modern Python 3, featuring a professional ImGui interface, modular architecture, and **Z-Wave S2 security support** in beta for the moment.
 
-- **Z-Wave Plus Detection**: Automatically identifies Z-Wave Plus devices
-- **S2 (Security 2) Full Decryption**: 
-  - ✅ Complete ECDH key exchange capture
-  - ✅ AES-CCM decryption with authentication
-  - ✅ All three security classes (Unauthenticated, Authenticated, Access Control)
-  - ✅ Requires DSK (Device Specific Key) from device label
-  - ✅ Perfect Forward Secrecy support
-  - ✅ SPAN replay protection
-- **S0 (Security 0) Full Support**: 
-  - ✅ Complete encryption/decryption
-  - ✅ Nonce management
-  - ✅ AES-128 OFB mode
-- **Enhanced Command Classes**: 60+ command classes including:
-  - Security 2 (S2) - Detection and analysis
-  - Central Scene - Button/scene events
-  - Notification/Alarm - Advanced event detection
-  - Color Control - RGB/RGBW lighting
-  - Door Lock - Smart lock control
-  - Barrier Operator - Garage doors/gates
-  - Sensor Multilevel - Environmental sensors
-  - Multi-channel - Multi-endpoint devices
-  - And many more...
+### What's New in NG?
 
-### ⚠️ Security Requirements
-
-- **S0 (Security 0)**: ✅ Full support - Can decrypt and inject
-  - Requires network key (default or captured)
-  - AES-128 encryption
-  
-- **S2 (Security 2)**: ✅ **FULL DECRYPTION SUPPORT**
-  - **Requires DSK** (Device Specific Key from device label)
-  - Must capture complete KEX (Key Exchange) during pairing
-  - ECDH Curve25519 key exchange
-  - AES-CCM authenticated encryption
-    
-### 📡 Compatible Networks
-
-- Z-Wave (Classic)
-- Z-Wave Plus (500 series)
-- Z-Wave Plus V2 (700 series) - Limited to S0 security
-- Works best with S0-secured or unsecured networks
+- 🎨 **Modern ImGui Interface** - Responsive GUI with real-time visualization replacing the old Tk one
+- 🏗️ **Modular Architecture** - "Clean" separation of concerns (GUI, Core, Hardware, S2)
+- 🔐 **S2 Support** - ECDH key exchange capture and AES-CCM decryption
+- ⚡ **Z-Wave Plus** - Enhanced command class support (more classes to come)
+- 📊 **Advanced Analytics** - Session management, nonce tracking, and export capabilities
+- 🛠️ **New CLI** - argparse-based command-line interface
+- 🧩 **Plugin-Ready** - Extensible architecture for custom modules
 
 ---
 
-## Installation
+## ✨ Features
+
+### 🔍 Packet Analysis
+- **Real-time Interception** - Live capture of Z-Wave traffic
+- **Protocol Decoding** - Automatic parsing of implemented command classes
+- **Smart Filtering** - Focus on specific networks, nodes, or command classes
+- **Hex Dump Viewer** - Raw packet inspection with detailed breakdowns
+
+### 🔐 Security Testing
+
+#### S0 (Security 0) - ✅ Full Support
+- ✅ Complete encryption/decryption
+- ✅ Nonce capture and management
+- ✅ AES-128 OFB mode
+- ✅ Frame injection with encryption
+- ✅ Network key management
+
+#### S2 (Security 2) - ✅ Beta Support
+- ✅ **ECDH Curve25519** key exchange capture
+- ✅ **AES-CCM** authenticated encryption/decryption
+- ✅ **All security classes** (Unauthenticated, Authenticated, Access Control)
+- ✅ **DSK-based** device pairing
+- ✅ **Perfect Forward Secrecy** support
+- ✅ **SPAN replay protection**
+- ✅ **Session management** with export capabilities
+
+### 🗺️ Network Visualization
+- **Interactive Topology Map** - Real-time network visualization
+- **Node Discovery** - Automatic device identification
+- **Relationship Mapping** - Controller-to-device connections
+- **Export Options** - Generate static graphs (PNG/SVG)
+
+### 💉 Packet Injection
+- **Advanced Mode** - Full control over frame construction
+- **Easy Mode** - Pre-configured common commands
+- **Secure Injection** - Support for S0-encrypted frames
+- **Template Library** - Reusable command templates
+
+### 📊 Logging & Export
+- **Timestamped Logs** - Detailed packet history
+- **CSV Export** - Analysis-ready data format
+- **Nonce Database** - S0 nonce tracking and export
+- **S2 Session Export** - Save key material and session data
+- **Copy-Paste** - Right-click context menus
+
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
 
-This tool is compatible with:
-- **RfCat** (requires rflib)
-- **Texas Instruments development KIT** (with UART bridge)
+**Hardware Requirements:**
+- **RfCat** compatible device (recommended), OR
+- **Texas Instruments** CC1110/CC1111 development kit
+- TODO: Evil Crow RF V2, and maybe others? (soon)
+- TODO: Software-Defined Radio to implement (soon)
 
-### Quick Install
+**Software Requirements:**
+- Python 3.8 or higher
+- Git
 
-1. **Clone the repository:**
+### Installation
 ```bash
-git clone https://github.com/penthertz/z-attack.git
-cd z-attack
-```
+# Clone the repository
+git clone https://github.com/penthertz/Z-Attack-ng.git
+cd Z-Attack-ng
 
-2. **Install Python dependencies:**
-```bash
-pip install -r requirements.txt
-```
+# Install Python dependencies
+pip install -r requirements.txt [--break-install]
 
-3. **Install Graphviz (for static network graph export):**
+# (Optional) Install Graphviz for network graph export
+# Ubuntu/Debian:
+sudo apt-get install graphviz
 
-**Debian/Ubuntu:**
-```bash
-apt-get install graphviz
-```
-
-**macOS:**
-```bash
+# macOS:
 brew install graphviz
+
+# Windows: Download from https://graphviz.org/download/
 ```
 
-**Windows:**
-Download from [https://graphviz.org/download/](https://graphviz.org/download/)
-
-4. **Install RfCat (if using RfCat device):**
+### First Run
 ```bash
-# Follow installation instructions at:
-# https://github.com/atlas0fd00m/rfcat
+# Using RfCat (default)
+python ZAttackNG
+
+# With debug mode
+python ZAttackNG -d
+
+# Using TI RF Kit
+python ZAttackNG --serial -lcom /dev/ttyUSB0 -scom /dev/ttyUSB1
+
+# Show all options
+python ZAttackNG --help
 ```
 
 ---
 
-## Quick Start - S2 Decryption
+## 🔐 S2 Decryption Guide
 
-**Want to decrypt S2 encrypted Z-Wave Plus traffic? Here's how:**
+Want to decrypt Z-Wave S2 traffic? Follow these simple steps:
 
-1. **Get the DSK** (Device Specific Key) from your device label/QR code
+### Step 1: Get the DSK
+The **Device Specific Key (DSK)** is printed on your device label or QR code.
 
-2. **Start Z-Attack:**
-   ```bash
-   python3 zattack-ImGUI.py
-   ```
+Format: `12345-67890-12345-67890-12345-67890-12345-67890`
 
-3. **Add DSK:** Menu → Add S2 DSK → Enter Node ID and DSK
+### Step 2: Start Z-Attack-NG
+```bash
+python ZAttackNG
+```
 
-4. **Pair the device** (Z-Attack captures key exchange automatically)
+### Step 3: Add DSK
+1. Click **Menu → Add S2 DSK**
+2. Enter **Node ID** (e.g., `02`)
+3. Enter **DSK** from device label
+4. Click **Add DSK**
 
-5. **Done!** All S2 messages now decrypt automatically
+### Step 4: Capture Key Exchange
+Initiate device pairing. Z-Attack-NG will automatically:
+- Capture the ECDH public keys
+- Compute the shared secret
+- Derive all encryption keys
+
+### Step 5: Decrypt!
+All subsequent S2 messages from this device will be automatically decrypted! 🎉
+
+**Monitor progress:** Check the console output for `[S2] ✓✓✓ DECRYPTED ✓✓✓` messages.
 
 ---
 
-## Usage
+## 📖 Documentation
 
 ### Command Line Options
+```
+usage: ZAttackNG [-h] [-1 | -2] [-lcom PORT] [-scom PORT] [-d] [-csv] [--no-csv]
+               [-k KEY] [-v]
 
-```bash
-python3 zattack-ImGUI.py [OPTIONS]
+Z-Attack-NG 1.0 - Z-Wave Security Testing Tool
+
+Options:
+  -h, --help            Show this help message and exit
+  -1, --rfcat           Use RfCat device (default)
+  -2, --serial          Use TI RF KIT (serial device)
+  -lcom PORT, --listen-port PORT
+                        Listening COM port for TI RF KIT
+  -scom PORT, --send-port PORT
+                        Sending COM port for TI RF KIT
+  -d, --debug           Enable debug mode (verbose output)
+  -csv, --csv-output    Enable CSV output to file (default: enabled)
+  --no-csv              Disable CSV output
+  -k KEY, --key KEY     Network key for S0 decryption (hex string)
+  -v, --version         Show program version and exit
 ```
 
-**Options:**
-- `-h` - Display help message
-- `-d` - Enable debug mode
-- `-csv` - Enable CSV output logging
-- `-1` - Use RfCat device (default)
-- `-2` - Use TI RF KIT
-- `-lcom COM1` - Listening port for TI RF KIT
-- `-scom COM2` - Sending port for TI RF KIT
+### Supported Command Classes
 
-### Examples
+Z-Attack-NG supports:
 
-**Using RfCat (default):**
-```bash
-python3 zattack-ImGUI.py
+<details>
+<summary>Click to expand full list</summary>
+
+**Security:**
+- Security S0 (0x98) - Legacy encryption
+- Security S2 (0x9F) - Modern encryption with ECDH
+
+**Control:**
+- Basic (0x20)
+- Switch Binary (0x25)
+- Switch Multilevel (0x26)
+- Switch All (0x27)
+- Scene Activation (0x2B)
+- Central Scene (0x5B)
+
+**Sensors:**
+- Sensor Binary (0x30)
+- Sensor Multilevel (0x31)
+- Meter (0x32)
+- Alarm/Notification (0x71)
+
+**Configuration:**
+- Configuration (0x70)
+- Association (0x85)
+- Multi Channel Association (0x8E)
+- Wake Up (0x84)
+- Battery (0x80)
+
+**Advanced:**
+- Multi Channel (0x60)
+- Color Control (0x33)
+- Door Lock (0x62)
+- User Code (0x63)
+- Barrier Operator (0x66)
+- Thermostat Mode (0x40)
+- Thermostat Setpoint (0x43)
+
+**Device Info:**
+- Version (0x86)
+- Manufacturer Specific (0x72)
+- Z-Wave Plus Info (0x5E)
+- Device Reset Locally (0x5A)
+
+*...and many more!*
+
+</details>
+
+---
+
+## 🏗️ Architecture
 ```
-
-**Using RfCat with debug mode:**
-```bash
-python3 zattack-ImGUI.py -d
-```
-
-**Using Texas Instruments RF Kit:**
-```bash
-python3 zattack-ImGUI.py -2 -lcom /dev/ttyUSB0 -scom /dev/ttyUSB1
+Z-Attack-ng/
+├── main.py                 # Entry point with modern argument parsing
+├── config.py               # Global configuration and settings
+├── requirements.txt        # Python dependencies
+│
+├── core/                   # Core Z-Wave protocol handling
+│   ├── __init__.py
+│   ├── protocol.py        # Frame parsing and construction
+│   ├── crypto.py          # S0 encryption/decryption
+│   └── network.py         # Network topology management
+│
+├── s2/                    # S2 Security module
+│   ├── __init__.py
+│   ├── s2_crypto.py       # ECDH, AES-CCM, key derivation
+│   └── s2_manager.py      # Session management, KEX handling
+│
+├── hardware/              # Hardware abstraction layer
+│   ├── __init__.py
+│   ├── rfcat_device.py    # RfCat interface
+│   └── serial_device.py   # TI RF Kit interface
+│
+├── gui/                   # ImGui-based interface
+│   ├── __init__.py
+│   ├── main_window.py     # Main application window
+│   ├── windows.py         # Popup windows (send, nonce, etc.)
+│   ├── s2_window.py       # S2 management windows
+│   └── utils.py           # GUI utilities (logging, textures)
+│
+├── data/                  # Data files and parsers
+│   ├── zwClasses.py       # Command class definitions
+│   ├── sendData.py        # Pre-configured commands
+│   └── manufacturer_specific.xml
+│
+└── images/                # GUI assets
+    ├── zattack.png
+    └── penthertz.png
 ```
 
 ---
 
-## Features
+## 🛠️ Hardware Support
 
-### Interactive GUI
-- Real-time packet reception log
-- Send/response log with color coding
-- Network topology visualization
-- Easy-to-use packet injection interface
+### RfCat (Recommended)
+- **Compatibility:** YardStick One, RfCat dongle
+- **Frequency:** 868.4 MHz (EU) / 908.4 MHz (US)
+- **Setup:** Automatic configuration
+- **Status:** ✅ Fully supported
+
+### Texas Instruments RF Kit
+- **Compatibility:** CC1110, CC1111 development boards
+- **Interface:** Dual UART (listen + send)
+- **Setup:** Manual port configuration
+- **Status:** ✅ Fully supported
+
+---
+
+## 🎯 Use Cases
+
+### Security Research
+- Analyze Z-Wave network security posture
+- Test device encryption implementations
+- Discover protocol vulnerabilities
+- Validate security configurations
+
+### Smart Home Auditing
+- Map home automation networks
+- Identify unsecured devices
+- Test access control policies
+- Verify encryption standards
+
+### Protocol Analysis
+- Reverse engineer device behavior
+- Document command implementations
+- Create device fingerprints
+- Study protocol compliance
+
+### Penetration Testing
+- Include in IoT security assessments
+- Demonstrate Z-Wave vulnerabilities
+- Test network segmentation
+- Validate incident response
+
+---
+
+## 📊 Screenshots
+
+### Main Interface
+Real-time packet interception with dual-log display:
+- Reception log (top) - Intercepted traffic
+- Send/Response log (bottom) - Your injections and ACKs
 
 ### Network Discovery
-- Automatic HomeID detection
-- Interactive visual network map
-- Node identification and tracking
-- Export topology to static images
+Interactive topology map with:
+- Visual node relationships
+- Live connection status
+- Controller identification
+- Export to static images
 
-### Security Testing
-- Frame interception and analysis
-- Nonce capture for encrypted communications (S0 and S2 beta)
-- Custom packet crafting and injection
-- Support for secure (S0/S2) and unsecure frames
-- **Full S2 decryption with DSK**
-- S0 backward compatibility
+### S2 Security Manager
+Comprehensive session management:
+- Active session monitoring
+- DSK configuration
+- Public key capture
+- Nonce tracking
 
-### Logging
-- Timestamped packet logs
-- CSV export functionality
-- Nonce capture history (S0 and S2)
-- S2 session management
-- Right-click to copy functionality
+*(Screenshots coming soon)*
 
 ---
 
-## GUI Overview
+## 🔬 Research & Publications
 
-### Main Window
-- **Reception Log**: Real-time display of intercepted packets
-- **Send/Response Log**: Track sent frames and responses
-- **Network Info**: View discovered HomeIDs and network topology
+This tool has been used in various security research projects:
 
-### Menu Options
-- **Send Frame (Advanced)**: Craft custom Z-Wave packets
-- **Send Frame (Easy)**: Quick access to common commands
-- **Define AES Key**: Set network key for decryption
-- **Captured Nonces**: View and export captured nonces
-- **S2 Security Manager**: Manage S2 sessions and keys
-- **Add S2 DSK**: Configure device-specific keys for S2 decryption
-- **Network Map**: Interactive topology visualization
+- **Z-Wave Security Analysis** - Penthertz Research (2025)
+- **Smart Home Security Testing** - Advens (2015)
 
 ---
 
-## Requirements
+## 🤝 Contributing
 
-See `requirements.txt` for full Python dependencies:
-- Python 3.8+
-- PyImGui
-- PyOpenGL
-- Pillow (PIL)
-- pycryptodome (S0 encryption)
-- pycryptodomex (S2 encryption)
-- cryptography (S2 ECDH)
-- pyserial
-- pydot
-- glfw
-- rflib (for RfCat support)
+We welcome contributions! Here's how you can help:
 
----
+### Ways to Contribute
+- 🐛 **Report bugs** - Open an issue with detailed reproduction steps
+- 💡 **Suggest features** - Share your ideas for improvements
+- 📝 **Improve docs** - Help us make the documentation better
+- 🔧 **Submit PRs** - Fix bugs or add features
 
-## Contributing
+### Development Setup
+```bash
+# Fork and clone
+git clone https://github.com/PentHertz/Z-Attack-ng.git
+cd Z-Attack-ng
 
-Contributions are welcome! Please feel free to submit pull requests or open issues for bugs and feature requests.
+# Create feature branch
+git checkout -b feature/amazing-feature
 
----
+# Make changes and test
+python ZAttackNG -d
 
-## License
+# Commit and push
+git commit -m "Add amazing feature"
+git push origin feature/amazing-feature
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-See [LICENSE](LICENSE) for full details.
-
----
-
-## Credits
-
-**Original Author:** Advens Security Research Team (2015)  
-Website: [www.advens.fr](https://www.advens.fr)
-
-**Reloaded By:** Penthertz (2025)  
-Website: [penthertz.com](https://penthertz.com)
+# Open Pull Request
+```
 
 ---
 
-## Changelog
+## 📜 License
 
-### Version 1.0 (2025)
-- ✨ Complete Python 3 port
-- 🎨 New ImGui-based graphical interface
-- 🗺️ Interactive network visualization
-- 🔐 Enhanced nonce capture system
-- 🔒 **Beta S2 (Security 2) decryption support**
-- 📡 More Z-Wave Plus command classes
-- 🔑 ECDH key exchange capture
-- 🛡️ AES-CCM authenticated encryption
+This project is licensed under the **GNU General Public License v3.0** - see the [LICENSE](LICENSE) file for details.
+```
+Z-Attack-NG - Next Generation Z-Wave Security Testing Framework
+Copyright (C) 2025 Penthertz
 
-### Version 0.1 (2015)
-- 🎉 Initial release by Advens
-- Basic packet interception
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+
+---
+
+## 🙏 Credits
+
+### Original Author
+**Advens Security Research Team** (2015)  
+Website: [advens.fr](https://www.advens.fr)  
+Original project: [github.com/Advens/Z-Attack](https://github.com/Advens/Z-Attack)
+
+### Refactored & Enhanced By
+**Penthertz** (2025)  
+Website: [penthertz.com](https://penthertz.com)  
+Twitter: [@penthertz](https://twitter.com/penthertz)
+
+### Special Thanks
+- The **RfCat** project for excellent RF tools
+- **Z-Wave Alliance** for protocol documentation
+- The open-source security community
+
+---
+
+## 📈 Changelog
+
+### [1.0] - 2025-01-19
+#### Added
+- Complete Python 3 rewrite with modern architecture
+- ImGui-based professional interface
+- Full S2 (Security 2) decryption support
+  - ECDH Curve25519 key exchange
+  - AES-CCM authenticated encryption
+  - DSK-based device pairing
+  - Session management
+- Modular architecture (core, gui, s2, hardware)
+- Modern argparse CLI
+- 60+ command class parsers
+- Interactive network topology visualization
+- Enhanced logging and export capabilities
+
+#### Changed
+- Migrated from Python 2 to Python 3.8+
+- Replaced Tkinter with ImGui for better UX
+- Restructured codebase for maintainability
+- Updated all dependencies to modern versions
+
+### [0.1] - 2015
+- Initial release by Advens
+- Basic Z-Wave packet interception
 - Injection capabilities
 - RfCat and TI Kit support
-
----
-
-## Support
-
-For questions, issues, or contributions:
-- Open an issue on GitHub
-- Visit [penthertz.com](https://penthertz.com)
+- S0 decryption
