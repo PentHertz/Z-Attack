@@ -22,6 +22,8 @@
 
 **Z-Attack-NG** is an interactive security research framework for Z-Wave protocol analysis and testing. Born from the original Z-Attack by Advens (2015), this next-generation version has been completely rewritten with modern Python 3, featuring a professional ImGui interface, modular architecture, and **Z-Wave S2 security support** in beta for the moment.
 
+![Z-Attack-NG](images/newzattack.png)
+
 ### What's New in NG?
 
 - 🎨 **Modern ImGui Interface** - Responsive GUI with real-time visualization replacing the old Tk one
@@ -474,9 +476,13 @@ Twitter: [@penthertz](https://twitter.com/penthertz)
 - Restructured codebase for maintainability
 - Updated all dependencies to modern versions
 
+![New Z-Attack-NG](images/newzattack.png)
+
 ### [0.1] - 2015
 - Initial release by Advens
 - Basic Z-Wave packet interception
 - Injection capabilities
 - RfCat and TI Kit support
 - S0 decryption
+
+![Z-Attack v0.1](images/oldzattack.png)
