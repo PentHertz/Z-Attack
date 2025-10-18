@@ -96,6 +96,27 @@
 - Git
 
 ### Installation
+
+## 🚀 Installation
+
+### Using Poetry (Recommended)
+```bash
+# Install Poetry
+curl -sSL https://install.python-poetry.org | python3 -
+
+# Clone repository
+git clone https://github.com/penthertz/Z-Attack-ng.git
+cd Z-Attack-ng
+
+# Install dependencies
+poetry install
+
+# Run Z-Attack-NG
+poetry run python ZAttackNG
+```
+
+### Using pip (Traditional)
+
 ```bash
 # Clone the repository
 git clone https://github.com/penthertz/Z-Attack-ng.git
